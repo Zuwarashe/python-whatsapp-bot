@@ -1,10 +1,11 @@
-from flask import Flask
-from start.whatsapp_quickstart import whatsapp_bp  # Import the Blueprint
+import logging
 
-def create_app():
-    app = Flask(__name__)
+from app import create_app
 
-    # Register the WhatsApp API routes
-    app.register_blueprint(whatsapp_bp, url_prefix="/")
 
-    return app
+
+app = create_app()
+
+if __name__ == "__main__":
+    logging.info("Flask app started")
+    app.run(host="0.0.0.0", port=8000)
